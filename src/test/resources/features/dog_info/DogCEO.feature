@@ -10,8 +10,11 @@ Feature: Testing different requests on the dog ceo api application
   Scenario: Get list of all dog breeds from the application
     Given User sends a GET request to get list of all dog breeds
 
-  Scenario: Verify Retriever is within list of breeds
-    Given User sends a GET request to verify retriever is within list
+  Scenario Outline: Verify Retriever is within list of breeds
+    Given User sends a GET request to verify retriever is within list <value>
+    Examples:
+      | value     |
+      | retriever |
 
   Scenario: Get list of sub-breeds for retriever
     Given User sends a GET request to get list of sub-breeds for retriever

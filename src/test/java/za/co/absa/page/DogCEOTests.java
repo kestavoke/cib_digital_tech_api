@@ -6,7 +6,9 @@ import net.serenitybdd.rest.SerenityRest;
 import io.restassured.response.Response;
 import io.restassured.http.ContentType;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DogCEOTests extends ReuseableSpecifications {
 
@@ -15,30 +17,22 @@ public class DogCEOTests extends ReuseableSpecifications {
                 spec(getGenericRequestSpec()).
                 when().
                 get(EndPoint.getAllBreedList).
-                then().log().all();
-    }
-
-    public void verifyThatRetrieverIsWithInList() {
-        Response response = SerenityRest.rest().given().
-                spec(getGenericRequestSpec()).
-                when().
-                get(EndPoint.getAllBreedList).
                 then().
                 contentType(ContentType.JSON).
-                extract().response();
+                log().all();
+    }
 
-        // List<String> subBreed = response.path(EndPoint.getGetRetrieverWithInList);
+    public void verifyThatRetrieverIsWithInList(String value) {
+        String response = SerenityRest.rest().given().
+                spec(getGenericRequestSpec()).
+                when().
+                get(EndPoint.getAllBreedList).jsonPath().getString(EndPoint.verifyRetrieverWithInList);
 
-        if (response.path(EndPoint.getGetRetrieverWithInList).equals("message.retriever")) {
+        if (response.contains(value)) {
             System.out.println("Verify - retriever is within list");
         } else {
-            System.out.println("Verified - retriever is NOT  within list");
+            System.out.println("retriever not within list");
         }
-
-//        for (String breedType : subBreed){
-//            if (breedType.equalsIgnoreCase("message.retriever"))
-//            System.out.println("Verify - retriever is within list");
-//        }
     }
 
     public void extractSubRetrieverBreed() {
@@ -52,10 +46,8 @@ public class DogCEOTests extends ReuseableSpecifications {
 
         List<String> subBreed = listOfBreed.path(EndPoint.getGetRetrieverWithInList);
 
-        for (String breedType : subBreed) {
-            if (breedType != null) {
-                System.out.println(breedType);
-            }
+        for (String breedName : subBreed) {
+            System.out.println(breedName);
         }
     }
 

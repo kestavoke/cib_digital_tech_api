@@ -14,9 +14,9 @@ public class DogCEO_steps {
         dogsInfo.extractAllBreeds();
     }
 
-    @Given("^User sends a GET request to verify retriever is within list$")
-    public void getRetriverFromListOfBreeds() {
-        dogsInfo.verifyThatRetrieverIsWithInList();
+    @Given("^User sends a GET request to verify retriever is within list (.*)$")
+    public void getRetriverFromListOfBreeds(String value) {
+        dogsInfo.verifyThatRetrieverIsWithInList(value);
     }
 
     @Given("^User sends a GET request to get list of sub-breeds for retriever$")

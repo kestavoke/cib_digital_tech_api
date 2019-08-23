@@ -5,5 +5,5 @@ public interface EndPoint {
     String getSubRetrieverBreed = "breed/retriever/list";
     String getBreedRandomImage = "breeds/image/random";
     String getGetRetrieverWithInList = "message.retriever";
-
+    String verifyRetrieverWithInList = "message";
 }
