@@ -1,7 +1,6 @@
-pipeline {
-    agent { any 'linux' }
+#!groovy
+node {
 
-    stages {
     stage('Smoke') {
         try {
             sh "mvn clean verify -Dtags='type:@SMOKE'"
@@ -17,7 +16,7 @@ pipeline {
     }
     stage('API') {
         try {
-            sh "mvn clean verify -Dtags='type:SMOKE'"
+            sh "mvn clean verify -Dtags='type:@SMOKE'"
         } catch (err) {
 
         } finally {
@@ -28,10 +27,8 @@ pipeline {
             ])
         }
     }
-
     stage('Results') {
         junit testResults: '**/target/failsafe-reports/*.xml', allowEmptyResults: true
         archiveArtifacts '**target/**'
     }
-}
 }
