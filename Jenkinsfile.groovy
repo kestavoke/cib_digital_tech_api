@@ -1,5 +1,4 @@
-pipeline {
-    stages {
+node {
 
         stage ('Build') {
             try {
@@ -41,4 +40,3 @@ pipeline {
             archiveArtifacts '**target/**'
         }
     }
-}
