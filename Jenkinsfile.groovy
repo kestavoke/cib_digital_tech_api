@@ -3,7 +3,7 @@ node {
 
     stage('Smoke') {
         try {
-            sh "mvn clean verify -Dtags='type:@SMOKE'"
+            sh "mvn clean install"
         } catch (err) {
 
         } finally {
@@ -16,7 +16,7 @@ node {
     }
     stage('API') {
         try {
-            sh "mvn clean verify -Dtags='type:@SMOKE'"
+            sh "mvn clean install"
         } catch (err) {
 
         } finally {
