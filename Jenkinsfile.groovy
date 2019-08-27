@@ -11,7 +11,7 @@ node {
 
         stage('Smoke') {
             try {
-                sh "mvn clean install"
+                sh 'mvn install'
             } catch (err) {
 
             } finally {
@@ -24,7 +24,7 @@ node {
         }
         stage('API') {
             try {
-                sh "mvn clean verify"
+                sh "mvn install"
             } catch (err) {
 
             } finally {
