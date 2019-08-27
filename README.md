@@ -1,6 +1,6 @@
 # cib_digital_tech_api
 
-Description: Corporate and Investment Banking front-end testing
+Description: Corporate and Investment Banking API testing
 
 This is a an Hybrid approach with modularity created for "CIB Digital Tech QA automation assessment" the framework consist of other test automation tools such as:
  - Intelli J IDE
