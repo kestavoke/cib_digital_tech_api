@@ -1,8 +1,8 @@
 node {
-    tools {
-        maven 'M3'
+    stage('com'){
+        def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
+        sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
     }
-
         stage ('Build') {
             try {
                 sh 'mvn clean package'
