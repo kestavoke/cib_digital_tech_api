@@ -1,4 +1,7 @@
 node {
+    tools {
+        maven 'M3'
+    }
 
         stage ('Build') {
             try {
