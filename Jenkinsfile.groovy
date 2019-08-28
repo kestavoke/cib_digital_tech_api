@@ -1,8 +1,4 @@
 node {
-    stage('com'){
-        def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
-        sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
-    }
         stage ('Build') {
             try {
                 def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
