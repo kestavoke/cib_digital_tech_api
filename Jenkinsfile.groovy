@@ -5,6 +5,8 @@ node {
     }
         stage ('Build') {
             try {
+                def mvnHome = tool name: 'Maven 3.6.1', type: 'maven'
+                sh "${mvnHome}/bin/mvn -B"
                 sh 'mvn clean package'
                 junit '**/target/surefire-reports/TEST-*.xml'
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
