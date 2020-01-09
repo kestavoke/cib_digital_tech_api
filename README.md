@@ -18,7 +18,7 @@ To give you a well built launch pad to execute and review the code, the followin
 Perquisites to execute the code:
 1. Java and Maven should be installed and path configured on the local machine
 2. Intelli J IDE
-3. Clone repo to local machine: git clone https://kestavoke@bitbucket.org/kestavoke/cib_digital_tech_api.git
+3. Clone repo to local machine: git clone https://github.com/kestavoke/cib_digital_tech_api.git
 4. Ensure to import all dependencies in pom.xml from maven repository
 5. Navigate to the cloned dir using CMD prompt
 6. Execute the code with command: mvn clean install
